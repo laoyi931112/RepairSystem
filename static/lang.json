@@ -1,0 +1,318 @@
+{
+	"personal_center": {
+		"en": "personal center",
+		"cn": "我的",
+		"my": "saya"
+	},"Nearby_maintenance_provider": {
+		"en": "Nearby maintenance provider",
+		"cn": "附近维修商",
+		"my": "Pembekal penyediaan dekat"
+	},"rough_draft": {
+		"en": "rough draft",
+		"cn": "草稿",
+		"my": "draft"
+	},"Maintenance_records": {
+		"en": "Maintenance records",
+		"cn": "维修记录",
+		"my": "Rekod pemeliharaan"
+	},"Not_filled_in": {
+		"en": "Not filled in",
+		"cn": "未填写",
+		"my": "Tidak diisi"
+	},"Parameter_error": {
+		"en": "Parameter error",
+		"cn": "参数错误",
+		"my": "Ralat parameter"
+	},"Unable_find_repairman": {
+		"en": "Unable to find a repairman",
+		"cn": "找不到维修商",
+		"my": "Tidak dapat cari pembaikan"
+	},"Enterprise_Introduction": {
+		"en": "Enterprise Introduction",
+		"cn": "企业简介",
+		"my": "Perkenalan Perusahaan"
+	},"Apply_warranty": {
+		"en": "Apply for warranty",
+		"cn": "申请保修",
+		"my": "Apply for warranty"
+	},"Buying_merchants": {
+		"en": "Buying merchants",
+		"cn": "购买商家",
+		"my": "Membeli pedagang"
+	},"Purchase_voucher": {
+		"en": "Purchase voucher",
+		"cn": "购买凭证",
+		"my": "Guru pembelian"
+	},"Product_parameters": {
+		"en": "Product parameters",
+		"cn": "产品参数",
+		"my": "Parameter produk"
+	},"Agree_registration": {
+		"en": "Agree upon registration",
+		"cn": "注册即同意",
+		"my": "Setuju semasa mendaftar"
+	},"Place_residence": {
+		"en": "Place of residence",
+		"cn": "居住地",
+		"my": "Tempat tinggal"
+	},"nickname": {
+		"en": "nickname",
+		"cn": "昵   称",
+		"my": "nama gelaran"
+	},"enter_username": {
+		"en": "enter one user name",
+		"cn": "请输入用户名",
+		"my": "masukkan satu nama pengguna"
+	},"Choose_avatar": {
+		"en": "Choose a avatar",
+		"cn": "选择头像",
+		"my": "Pilih avatar"
+	},"Repair_Order": {
+		"en": "Repair Order",
+		"cn": "维修单",
+		"my": "Tertib Pembaikan"
+	},"Maintenance_party": {
+		"en": "Maintenance party",
+		"cn": "维修方",
+		"my": "Parti pemeliharaan"
+	},"Save_date": {
+		"en": "Save date",
+		"cn": "保存日期",
+		"my": "Simpan tarikh"
+	},"Completion_Date": {
+		"en": "Completion Date",
+		"cn": "完成日期",
+		"my": "Tarikh Selesai"
+	},"end": {
+		"en": "end",
+		"cn": "和",
+		"my": "dan"
+	},"Agree_upon_login": {
+		"en": "Agree upon login",
+		"cn": "登录即同意",
+		"my": "Setuju bila log masuk"
+	},"exceed_the_time_limit": {
+		"en": "exceed the time limit",
+		"cn": "过期",
+		"my": "terlambat"
+	},"Under_protection": {
+		"en": "Under protection",
+		"cn": "在保",
+		"my": "Di bawah perlindungan"
+	},
+	"Under_review": {
+		"en": "Under review",
+		"cn": "审核中",
+		"my": "Dalam ulasan"
+	},"all": {
+		"en": "all",
+		"cn": "全部",
+		"my": "keseluruhan"
+	},"View_Details": {
+		"en": "View Details",
+		"cn": "查看详情",
+		"my": "Papar Perincian"
+	},"Warranty_party": {
+		"en": "Warranty party",
+		"cn": "保修方",
+		"my": "Parti jaminan"
+	},"expiration_date": {
+		"en": "expiration date",
+		"cn": "过期日期",
+		"my": "expiration date"
+	},"Enter_keyword_search": {
+		"en": "Enter keyword search",
+		"cn": "输入关键词搜索",
+		"my": "Masukkan carian kata kunci"
+	},"no_data": {
+		"en": "no data",
+		"cn": "暂无数据",
+		"my": "Semasa tiada data tersedia"
+	},"Please_enter": {
+		"en": "Please enter",
+		"cn": "请输入",
+		"my": "Sila masukkan"
+	},"Please_upload_pictures": {
+		"en": "Please upload pictures",
+		"cn": "请上传图片",
+		"my": "Sila muat naik gambar"
+	},"Enter_the_cause_of_the_fault": {
+		"en": "Enter the cause of the fault",
+		"cn": "输入故障原因",
+		"my": "Masukkan penyebab kesalahan"
+	},"Please_select_repairer": {
+		"en": "Please select a repairer",
+		"cn": "请选择维修商",
+		"my": "Sila pilih pembaikan"
+	},"Add_pictures_to_improve_fault_description": {
+		"en": "Add pictures to improve fault description",
+		"cn": "添加图片完善故障描述",
+		"my": "Tambah gambar untuk memperbaiki keterangan ralat"
+	},"Warranty_period": {
+		"en": "Warranty period",
+		"cn": "保修期限",
+		"my": "Period jaminan"
+	},"create_date": {
+		"en": "create date",
+		"cn": "创建日期",
+		"my": "Dicipta pada"
+	},"day": {
+		"en": "day",
+		"cn": "日",
+		"my": "hari"
+	},"month": {
+		"en": "month",
+		"cn": "月",
+		"my": "bulan"
+	},
+	"year": {
+		"en": "year",
+		"cn": "年",
+		"my": "tahun"
+	},
+	"Temporary_draft_box": {
+		"en": "Temporary draft box",
+		"cn": "暂存草稿箱",
+		"my": "Kotak Draf sementara"
+	},
+	"distributor": {
+		"en": "distributor",
+		"cn": "分销商",
+		"my": "distributor"
+	},
+	"Please_select_date": {
+		"en": "Please select a date",
+		"cn": "请选择日期",
+		"my": "Sila pilih tarikh"
+	},
+	"Purchase_date": {
+		"en": "Purchase date",
+		"cn": "购买日期",
+		"my": "Tarikh pembelian"
+	},
+	"repqair_add_tip": {
+		"en": "Please add pictures of purchase documents, warranty cards, etc",
+		"cn": "请添加购买单据、保修卡等图片",
+		"my": "Sila tambah gambar dokumen beli, kad jaminan, dll."
+	},
+	"Privacy_Agreement": {
+		"en": "Privacy Agreement",
+		"cn": "隐私协议",
+		"my": "Perjanjian Peribadi"
+	},
+	"User_Agreement": {
+		"en": "User Agreement",
+		"cn": "用户协议",
+		"my": "Perjanjian Pengguna"
+	},
+	"Please_enter_your_old_password": {
+		"en": "Please enter your old password",
+		"cn": "请输入旧密码",
+		"my": "Sila masukkan kata laluan lama anda"
+	},
+	"Confirm_Password": {
+		"en": "Confirm Password",
+		"cn": "确认密码",
+		"my": "Sahkan Katalaluan"
+	},
+	"Please_enter_new_password": {
+		"en": "Please enter a new password",
+		"cn": "请输入新密码",
+		"my": "Sila masukkan kata laluan baru"
+	},
+	"Verification_code_sent": {
+		"en": "Verification code sent",
+		"cn": "验证码已发送",
+		"my": "Kod pengesahan dihantar"
+	},
+	"confirm": {
+		"en": "confirm",
+		"cn": "确认",
+		"my": "tentukan"
+	},
+	"Please_enter_new_phone_number": {
+		"en": "Please enter new phone number",
+		"cn": "请输入新手机号",
+		"my": "Sila masukkan nombor telefon baru"
+	},
+	"Please_select": {
+		"en": "Please select",
+		"cn": "请选择",
+		"my": "Sila pilih"
+	},
+	"next_step": {
+		"en": "next step",
+		"cn": "下一步",
+		"my": "langkah berikutnya"
+	},
+	"Retrieve": {
+		"en": "Retrieve",
+		"cn": "重新获取",
+		"my": "Dapatkan"
+	},
+	"Obtain_verification_code": {
+		"en": "Obtain verification code",
+		"cn": "获取验证码",
+		"my": "Dapatkan kod pengesahan"
+	},
+	"Please_enter_the_verification_code": {
+		"en": "Please enter the verification code",
+		"cn": "请输入验证码",
+		"my": "Sila masukkan kod pengesahan"
+	},
+	"Current_phone_number": {
+		"en": "Current phone number",
+		"cn": "当前手机号",
+		"my": "Nombor telefon semasa"
+	},
+	"Modify_phone_number": {
+		"en": "Modify phone number",
+		"cn": "修改手机号",
+		"my": "Ubah nombor telefon"
+	},
+	"Set_Language": {
+		"en": "Set Language",
+		"cn": "设置语言",
+		"my": "Tetapkan Bahasa"
+	},
+	"server_error": {
+		"en": "The server is busy, please try again later",
+		"cn": "服务器繁忙，请稍后再试",
+		"my": "Pelayan sibuk, sila cuba lagi kemudian"
+	},
+	"logout": {
+		"en": "logout",
+		"cn": "退出登录",
+		"my": "tandatangan keluar"
+	},
+	"About_us": {
+		"en": "About us",
+		"cn": "关于我们",
+		"my": "Tentang kita"
+	},
+	"Follow_system": {
+		"en": "Follow system",
+		"cn": "跟随系统",
+		"my": "Ikut sistem"
+	},
+	"set_up": {
+		"en": "set up",
+		"cn": "设置",
+		"my": "tetapkan"
+	},
+	"phone_number": {
+		"en": "phone number",
+		"cn": "手机号",
+		"my": "nombor telefon"
+	},
+	"Change_Password": {
+		"en": "Change Password",
+		"cn": "修改密码",
+		"my": "Ubah Katalaluan"
+	},
+	"language": {
+		"en": "language",
+		"cn": "语言",
+		"my": "bahasa"
+	}
+}

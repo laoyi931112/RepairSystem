@@ -1,0 +1,309 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "",
+				//"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white",
+				"navigationStyle": "custom",
+				//"onReachBottomDistance":20,
+				"app-plus": {
+					"titleNView": false,
+					"pullToRefresh": {
+						"style": "circle",
+						"support": true
+					}
+				}
+			}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/message/message",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/forget/forget",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/perfectinfo/perfectinfo",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/setting/setting",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/updatephone/updatephone",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/comfirmphone/comfirmphone",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/updatepassword/updatepassword",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/comfirmpassword/comfirmpassword",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/language/language",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/about/about",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/article/article",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/addrepair/addrepair",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/addOfflineRepair/addOfflineRepair",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/comfirmrepair/comfirmrepair",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/repairdetail/repairdetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/applyrepair/applyrepair",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/checktenant/checktenant",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/repairlog/repairlog",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/tenantdetail/tenantdetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/tenantnews/tenantnews",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff",
+				"navigationStyle": "custom"
+			}
+
+		}, {
+			"path": "pages/applog/applog",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/tenantlist/tenantlist",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/notelog/notelog",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#fff"
+			}
+
+		}, {
+			"path": "pages/productdetail/productdetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true
+			}
+
+		}, {
+			"path": "pages/applyrepairdetail/applyrepairdetail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/addGuide/addGuide",
+			"style": {
+				"navigationBarBackgroundColor": "#4C81EF",
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"tabBar": {
+		"selectedColor": "#4C81EF",
+		"iconWidth": "20px",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/tabbar/sheet@2x.png",
+				"selectedIconPath": "static/tabbar/sheet_on@2x.png"
+			},
+			{
+				"pagePath": "pages/addGuide/addGuide",
+				"text": "添加",
+				"iconPath": "static/tabbar/add@2x.png",
+				"selectedIconPath": "static/tabbar/add_on@2x.png"
+			},
+			{
+				"pagePath": "pages/tenantlist/tenantlist",
+				"text": "附近维修商",
+				"iconPath": "static/tabbar/near@2x.png",
+				"selectedIconPath": "static/tabbar/near_on@2x.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath": "static/tabbar/my@2x.png",
+				"selectedIconPath": "static/tabbar/my_on@2x.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "保修app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	}
+}
