@@ -11,7 +11,7 @@
 		<view class="info-wrap">
 			<view class="info-item">
 				<view class="info-desc">
-					<text style="color: red;">*</text>{{$t('field_product_item_name')}}
+					{{$t('field_product_item_name')}}<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<u-input v-model="productname" :placeholder="$t('err_required_item_name')" />
@@ -19,7 +19,7 @@
 			</view>
 			<view class="info-item" style="flex-direction: column;border-bottom: none;align-items: flex-start;">
 				<view class="info-desc" style="padding-bottom: 24rpx;">
-					<text style="color: red;">*</text>{{$t('app_add_warranty_image_tips')}}:
+					{{$t('app_add_warranty_image_tips')}}:<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<r-upload :maxcount="3" :value.sync="imgs" :width="120" :height="120"></r-upload>
@@ -27,7 +27,7 @@
 			</view>
 			<view class="info-item">
 				<view class="info-desc">
-					<text style="color: red;">*</text>{{$t('app_purchasing_date')}}
+					{{$t('app_purchasing_date')}}<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<view @click="handleShowDate" :placeholder="$t('app_select_date')"
@@ -39,7 +39,7 @@
 			</view>
 			<view class="info-item">
 				<view class="info-desc">
-					<text style="color: red;">*</text>{{$t('field_product_item_warranty_period')}}
+					{{$t('field_product_item_warranty_period')}}<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<u-input :placeholder="$t('err_required_warranty_period')" clearable v-model="periodDate"
@@ -48,7 +48,7 @@
 			</view>
 			<view class="info-item" style="flex-direction: column;border-bottom: none;align-items: flex-start;">
 				<view class="info-desc" style="padding-bottom: 24rpx;">
-					<text style="color: red;">*</text>{{$t('field_product_item_image')}}:
+					{{$t('field_product_item_image')}}:<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<r-upload :maxcount="3" :value.sync="pimgs" :width="120" :height="120"></r-upload>

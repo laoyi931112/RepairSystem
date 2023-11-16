@@ -11,7 +11,7 @@
 		<view class="info-wrap">
 			<view class="info-item" style="flex-direction: column;border-bottom: none;align-items: flex-start;">
 				<view class="info-desc" style="padding-bottom: 24rpx;">
-					<text style="color: red;">*</text>{{$t('app_add_warranty_image_tips')}}:
+					{{$t('app_add_warranty_image_tips')}}:<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<r-upload :maxcount="3" :value.sync="imgs" :width="120" :height="120"></r-upload>
@@ -19,7 +19,7 @@
 			</view>
 			<view class="info-item">
 				<view class="info-desc">
-					<text style="color: red;">*</text>{{$t('app_purchasing_date')}}
+					{{$t('app_purchasing_date')}}<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<view @click="handleShowDate" class="info-input" :class="[checkDate?'':'placeholder-class']">
@@ -31,7 +31,7 @@
 			</view>
 			<view class="info-item">
 				<view class="info-desc">
-					<text style="color: red;">*</text>{{$t('app_distributor')}}
+					{{$t('app_distributor')}}<text style="color: red;">*</text>
 				</view>
 				<view class="info-value">
 					<u-input class="info-input" v-model="keyword" @blur="handleFocus"

@@ -28,9 +28,9 @@
 						{{$t('field_product_item_name')}}：<text
 							style="color:#4C81EF;">{{detail.productItemNames}}</text>
 					</view>
-					<view class="info-item" v-if="detail.warrantyType=='1'">
+				<!-- 	<view class="info-item" v-if="detail.warrantyType=='1'">
 						{{$t('field_product_item_sn')}}：{{detail.productItemSn}}
-					</view>
+					</view> -->
 					<view class="info-item" @click="toBrandDetail(detail.brandCompId)" v-if="detail.warrantyType=='1'">
 						{{$t('def_brand')}}：<text style="color:#4C81EF;">{{detail.brandCompName}}</text>
 					</view>
@@ -108,6 +108,7 @@
 			if (options.obj) {
 				this.obj = options.obj
 				this.detail = JSON.parse(options.obj)
+				console.log('this.detail',this.detail);
 				if (this.detail.warrantyStatus == '2' && new Date(this.detail.expDate) > new Date()) {
 					this.showBtn = true
 				}
@@ -189,7 +190,7 @@
 
 			},
 			toApply() {
-				uni.setStorageSync(this.detail.id,this.detail)
+				uni.setStorageSync(`abc${this.detail.id}`,this.detail)
 				uni.navigateTo({
 					url: `/pages/applyrepair/applyrepair?id=${this.detail.id}`
 				})

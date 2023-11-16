@@ -94,7 +94,7 @@
 		},
 		onLoad(options) {
 			if (options.id) {
-				this.detail =uni.getStorageSync(options.id)
+				this.detail =uni.getStorageSync(`abc${options.id}`)
 				this.detail.expDate = new Date(this.detail.expDate).Format('dd/MM/yyyy')
 				this.detail.purDate = new Date(this.detail.purDate).Format('dd/MM/yyyy')
 				this.detail.createTimeStr=new Date(this.detail.createTimeStr).Format('dd/MM/yyyy')

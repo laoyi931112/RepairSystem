@@ -63,50 +63,57 @@
 				<view class="data-item" v-for="(item,index) in repairlist" :key="item.id" @click="toDetail(item)">
 					<view class="left-box">
 						<view class="info-wrap">
-							<view class="info-img" :data-url="item.productItemImagesUrls[0]">
-								 <!-- @click="handleImageClick(item.productItemImagesUrls[0])" -->
-								<u-image :src="item.productItemImagesUrls[0]" :show-loading="true" :show-error="true"
-									width="150" height="150">
-								</u-image>
-							</view>
 							<view class="info-box">
 								<!-- @click="toProductDetail(item.productItemId)" -->
 								<view class="info-item u-line-2">
-								<!-- 	{{$t('field_product_item_name')}}： -->
+									<!-- 	{{$t('field_product_item_name')}}： -->
 									<text style="color:#4C81EF;">{{item.productItemNames}}</text>
 								</view>
 								<!-- <view class="info-item">
 									{{$t('field_product_item_sn')}}：{{item.productItemSn}}
 								</view> -->
-							<!-- 	<view class="info-item u-line-1 info-item-1">
+								<!-- 	<view class="info-item u-line-1 info-item-1">
 									{{$t('def_warranty')}}ID：{{item.warrantyCode}}
 								</view> -->
-								<view class="info-item">
+								<!-- <view class="info-item">
 									{{$t('app_create_date')}}：{{item.createTimeStr}}
-								</view>
+								</view> -->
 								<view class="info-item u-line-1" v-if="item.warrantyType=='1'">
-									{{$t('enum_crm_comp_type_brand')}}：<text style="color:#4C81EF;">{{item.brandCompName}}</text>
+									{{$t('enum_crm_comp_type_brand')}}：<text
+										style="color:#4C81EF;">{{item.brandCompName}}</text>
+								</view>
+								<view class="info-item" style="font-size: 24rpx;">
+									{{$t('app_warranty_period')}}：{{item.purDateStr}}-{{item.expDateStr}}
+								</view>
+								<view class="info-item data-status" style="font-size: 24rpx;">
+									{{getstatus(item)}}
 								</view>
 							</view>
+							<view class="info-img" :data-url="item.productItemImagesUrls[0]">
+								<!-- @click="handleImageClick(item.productItemImagesUrls[0])" -->
+								<u-image :src="item.productItemImagesUrls[0]" :show-loading="true" :show-error="true"
+									width="130" height="130" borderRadius="24rpx">
+								</u-image>
+							</view>
 						</view>
-						<view class="data-status">
-				<!-- 			{{item.warrantyType=='1'?item.warrantyStatusDesc:$t('app_offline')}} -->
+							<!-- 			{{item.warrantyType=='1'?item.warrantyStatusDesc:$t('app_offline')}} -->
+						<!-- <view class="data-status">
 							{{getstatus(item)}}
-						</view>
+						</view> -->
 					</view>
 					<view class="right-box">
 						<!-- <view class="right-box-1"> -->
-							 <!-- @click="toBrandDetail(item)" -->
+						<!-- @click="toBrandDetail(item)" -->
 						<!-- 	<view class="date-wrap">
 								{{$t('enum_crm_comp_type_brand')}}：{{item.brandCompName}}
 							</view>
 						</view> -->
-						<view class="right-box-1">
+						<!-- <view class="right-box-1">
 							<view class="date-wrap">
 								{{$t('app_warranty_period')}}：{{item.purDateStr}}-{{item.expDateStr}}
 							</view>
-						</view>
-			<!-- 			<view class="right-box-1">
+						</view> -->
+						<!-- 			<view class="right-box-1">
 							<view class="repair-user">
 								{{$t('app_warranty_company')}}：{{item.distributorCompName}}
 							</view>
@@ -130,10 +137,11 @@
 	import utils from '../../utils/index.js'
 	import product from '../../api/product.js'
 	import wty from '../../api/wty.js'
-	const app=getApp()
+	const app = getApp()
 	export default {
 		data() {
-			return {pagetitle: '',
+			return {
+				pagetitle: '',
 				keyword: '',
 				carousel: [],
 				statusList: [],
@@ -149,8 +157,7 @@
 				showad: true,
 			}
 		},
-		onLoad() {
-		},
+		onLoad() {},
 		onReady() {
 			console.log('index', app)
 			this.statusList = [{
@@ -171,12 +178,12 @@
 			}]
 		},
 		onShow() {
-			const that=this
+			const that = this
 			that.getShuffleInfo()
 			that.pageNumber = 1
 			that.repairlist = []
 			that.pageQueryWarranty()
-			setTimeout(()=>{
+			setTimeout(() => {
 				that.statusList = [{
 					name: that.$t('app_all'),
 					code: '*'
@@ -190,11 +197,11 @@
 					name: that.$t('app_expire'),
 					code: '2'
 				}, {
-				name: that.$t('app_offline'),
-				code: '3'
-			}]
+					name: that.$t('app_offline'),
+					code: '3'
+				}]
 				app.setTabarLang()
-			},2000)
+			}, 2000)
 		},
 		onPullDownRefresh() {
 			this.pageNumber = 1
@@ -210,29 +217,31 @@
 		},
 		methods: {
 			toJSON() {},
-			getstatus(item){
-				if(item?.warrantyType=='0'){
+			getstatus(item) {
+				if (item?.warrantyType == '0') {
 					return this.$t('app_offline')
-				}else if(item?.warrantyType=='1'&&item?.warrantyStatus=='1'){
+				} else if (item?.warrantyType == '1' && item?.warrantyStatus == '1') {
 					return this.$t('app_in_audit')
-				}else if(item?.warrantyStatus=='2'&&item?.auditResult=='2'){
+				} else if (item?.warrantyStatus == '2' && item?.auditResult == '2') {
 					return this.$t('app_audit_refuse')
-				}else if(item?.warrantyStatus=='2'&&item?.auditResult=='1'&&item?.expDate>=new Date().getTime()){
+				} else if (item?.warrantyStatus == '2' && item?.auditResult == '1' && item?.expDate >= new Date()
+				.getTime()) {
 					return this.$t('app_under_guarantee')
-				}else if(item?.warrantyStatus=='2'&&item?.auditResult=='1'&&item?.expDate<new Date().getTime()){
+				} else if (item?.warrantyStatus == '2' && item?.auditResult == '1' && item?.expDate < new Date()
+				.getTime()) {
 					return this.$t('app_expire')
 				}
 				return item?.warrantyStatusDesc
 			},
-			handleSearchClick(){
+			handleSearchClick() {
 				uni.navigateTo({
-					url:`/pages/search/search?keyword=${this.keyword}`
+					url: `/pages/search/search?keyword=${this.keyword}`
 				})
 			},
-			handleImageClick(url){
+			handleImageClick(url) {
 				uni.previewImage({
-					current:0,
-					urls:[url]
+					current: 0,
+					urls: [url]
 				})
 			},
 			toProductDetail(id) {
@@ -252,23 +261,23 @@
 					pageNumber: that.pageNumber,
 					pageSize: that.pageSize
 				}
-				if (that.statusList[that.currentStatus]?.code&&that.statusList[that.currentStatus]?.code != '*') {
-					if(that.statusList[that.currentStatus]?.code=='0'){
-						_data.warrantyTypeEQ=1
-						_data.warrantyStatusEQ=1
+				if (that.statusList[that.currentStatus]?.code && that.statusList[that.currentStatus]?.code != '*') {
+					if (that.statusList[that.currentStatus]?.code == '0') {
+						_data.warrantyTypeEQ = 1
+						_data.warrantyStatusEQ = 1
 					}
-					if(that.statusList[that.currentStatus]?.code=='1'){
-						_data.warrantyTypeEQ=1
-						_data.warrantyStatusEQ=2
-						_data.expDateGE=new Date().getTime()
+					if (that.statusList[that.currentStatus]?.code == '1') {
+						_data.warrantyTypeEQ = 1
+						_data.warrantyStatusEQ = 2
+						_data.expDateGE = new Date().getTime()
 					}
-					if(that.statusList[that.currentStatus]?.code=='2'){
-						_data.warrantyTypeEQ=1
-						_data.warrantyStatusEQ=2
-						_data.expDateLT=new Date().getTime()
+					if (that.statusList[that.currentStatus]?.code == '2') {
+						_data.warrantyTypeEQ = 1
+						_data.warrantyStatusEQ = 2
+						_data.expDateLT = new Date().getTime()
 					}
-					if(that.statusList[that.currentStatus]?.code=='3'){
-						_data.warrantyTypeEQ=0
+					if (that.statusList[that.currentStatus]?.code == '3') {
+						_data.warrantyTypeEQ = 0
 					}
 					// _data.auditResultEQ = that.statusList[that.currentStatus]?.code
 				}
@@ -285,8 +294,10 @@
 						item.warrantyStatusKey = that.$store.state.enums?.ApplyStatusEnum?.find(t => t
 							.value == item.warrantyStatus)?.textCode
 						item.warrantyStatusDesc = that.$t('enum_common_apply_status_create')
-						item.productItemNames = item.warrantyType=='0'?item.customProductItemName:item.productItemName
-						item.productItemImagesUrls = item.warrantyType=='0'?item.customProductItemImagesUrl?.split(','):item.productItemImagesUrl?.split(',')
+						item.productItemNames = item.warrantyType == '0' ? item.customProductItemName :
+							item.productItemName
+						item.productItemImagesUrls = item.warrantyType == '0' ? item
+							.customProductItemImagesUrl?.split(',') : item.productItemImagesUrl?.split(',')
 						if (!item.productItemImagesUrls || item?.productItemImagesUrls?.length == 0) {
 							item.productItemImagesUrls = []
 						}
@@ -325,7 +336,7 @@
 				})
 			},
 			toDetail(obj) {
-				console.log('obj',obj)
+				console.log('obj', obj)
 				// if(obj.warrantyStatus=='0'){
 				// 	this.$store.state.tempobj=JSON.stringify(obj)
 				// 	console.log('this.$store.state.tempobj',this.$store.state.tempobj)
@@ -333,9 +344,9 @@
 				// 		url: `/pages/addrepair/addrepair`
 				// 	})
 				// }else{
-					uni.navigateTo({
-						url: `/pages/repairdetail/repairdetail?obj=${JSON.stringify(obj)}`
-					})
+				uni.navigateTo({
+					url: `/pages/repairdetail/repairdetail?obj=${JSON.stringify(obj)}`
+				})
 				// }
 			},
 			toBrandDetail(obj) {
@@ -540,9 +551,9 @@
 						}
 
 						.data-status {
-							font-size: 26rpx;
+							font-size: 26rpx !important;
 							font-weight: 500;
-							color: #4C81EF;
+							color: #4C81EF !important;
 							flex-shrink: 0;
 						}
 					}
