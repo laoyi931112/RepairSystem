@@ -50,14 +50,18 @@
 				})
 				uni.setTabBarItem({
 					index: 1,
-					text: that.$t('app_add')
+					text: that.$t('app_online')
 				})
 				uni.setTabBarItem({
-					index: 2,
-					text:'R & S'
+					index: 1,
+					text: that.$t('app_offline')
 				})
 				uni.setTabBarItem({
 					index: 3,
+					text:'R & S'
+				})
+				uni.setTabBarItem({
+					index: 4,
 					text: that.$t('app_my')
 				})
 			},
