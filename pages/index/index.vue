@@ -63,6 +63,12 @@
 				<view class="data-item" v-for="(item,index) in repairlist" :key="item.id" @click="toDetail(item)">
 					<view class="left-box">
 						<view class="info-wrap">
+							<view class="info-img" :data-url="item.productItemImagesUrls[0]">
+								<!-- @click="handleImageClick(item.productItemImagesUrls[0])" -->
+								<u-image :src="item.productItemImagesUrls[0]" :show-loading="true" :show-error="true"
+									width="130" height="130" borderRadius="24rpx">
+								</u-image>
+							</view>
 							<view class="info-box">
 								<!-- @click="toProductDetail(item.productItemId)" -->
 								<view class="info-item u-line-2">
@@ -82,24 +88,17 @@
 									{{$t('enum_crm_comp_type_brand')}}：<text
 										style="color:#4C81EF;">{{item.brandCompName}}</text>
 								</view>
-								<view class="info-item" style="font-size: 24rpx;">
-									{{$t('app_warranty_period')}}：{{item.purDateStr}}-{{item.expDateStr}}
-								</view>
-								<view class="info-item data-status" style="font-size: 24rpx;">
-									{{getstatus(item)}}
+								<view class="info-item" style="font-size: 24rpx;display: flex;flex-direction: column;">
+									<text>{{$t('app_warranty_period')}}</text>
+									<text>{{item.purDateStr}}-{{item.expDateStr}}</text>
 								</view>
 							</view>
-							<view class="info-img" :data-url="item.productItemImagesUrls[0]">
-								<!-- @click="handleImageClick(item.productItemImagesUrls[0])" -->
-								<u-image :src="item.productItemImagesUrls[0]" :show-loading="true" :show-error="true"
-									width="130" height="130" borderRadius="24rpx">
-								</u-image>
-							</view>
+
 						</view>
-							<!-- 			{{item.warrantyType=='1'?item.warrantyStatusDesc:$t('app_offline')}} -->
-						<!-- <view class="data-status">
+						<!-- 			{{item.warrantyType=='1'?item.warrantyStatusDesc:$t('app_offline')}} -->
+						<view class="data-status">
 							{{getstatus(item)}}
-						</view> -->
+						</view>
 					</view>
 					<view class="right-box">
 						<!-- <view class="right-box-1"> -->
@@ -225,10 +224,10 @@
 				} else if (item?.warrantyStatus == '2' && item?.auditResult == '2') {
 					return this.$t('app_audit_refuse')
 				} else if (item?.warrantyStatus == '2' && item?.auditResult == '1' && item?.expDate >= new Date()
-				.getTime()) {
+					.getTime()) {
 					return this.$t('app_under_guarantee')
 				} else if (item?.warrantyStatus == '2' && item?.auditResult == '1' && item?.expDate < new Date()
-				.getTime()) {
+					.getTime()) {
 					return this.$t('app_expire')
 				}
 				return item?.warrantyStatusDesc
@@ -503,6 +502,7 @@
 						display: inline-flex;
 						justify-content: space-between;
 						align-items: flex-start;
+						position: relative;
 
 						.info-wrap {
 							flex: 1;
@@ -555,6 +555,8 @@
 							font-weight: 500;
 							color: #4C81EF !important;
 							flex-shrink: 0;
+							position: absolute;
+							right: 0rpx;
 						}
 					}
 

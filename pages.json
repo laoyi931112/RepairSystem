@@ -277,14 +277,8 @@
 				"selectedIconPath": "static/tabbar/sheet_on@2x.png"
 			},
 			{
-				"pagePath": "pages/addrepair/addrepair",
-				"text": "在线",
-				"iconPath": "static/tabbar/add@2x.png",
-				"selectedIconPath": "static/tabbar/add_on@2x.png"
-			},
-			{
-				"pagePath": "pages/addOfflineRepair/addOfflineRepair",
-				"text": "离线",
+				"pagePath": "pages/addGuide/addGuide",
+				"text": "添加",
 				"iconPath": "static/tabbar/add@2x.png",
 				"selectedIconPath": "static/tabbar/add_on@2x.png"
 			},

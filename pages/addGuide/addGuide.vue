@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view class="link-item link-item-1" @click="toAddRepair">
+		<!-- <view class="link-item link-item-1" @click="toAddRepair">
 			<u-image width="128rpx" height="128rpx" :src="online"></u-image>
 			<view class="link-item-text">
 				{{$t('app_online')}}
@@ -11,7 +11,9 @@
 			<view class="link-item-text">
 				{{$t('app_offline')}}
 			</view>
-		</view>
+		</view> -->
+
+		<u-tabs :list="list" :is-scroll="false" :current="current" bar-width="120" @change="handleTabChange"></u-tabs>
 	</view>
 </template>
 
@@ -22,6 +24,8 @@
 				pagetitle: 'app_new_warranty',
 				offline: require('../../static/offline@2x.png'),
 				online: require('../../static/online@2x.png'),
+				list: [],
+				current: 0
 			};
 		},
 		onReady() {
@@ -29,18 +33,26 @@
 			uni.setNavigationBarTitle({
 				title: that.$t('app_new_warranty')
 			})
+			that.list = [{
+				name: that.$t('app_online')
+			}, {
+				name: that.$t('app_offline')
+			}]
 		},
-		methods:{
+		methods: {
 			toJSON() {},
-			toAddRepair(){
+			toAddRepair() {
 				uni.navigateTo({
-					url:`/pages/addrepair/addrepair`
+					url: `/pages/addrepair/addrepair`
 				})
 			},
-			toAddOfflineRepair(){
+			toAddOfflineRepair() {
 				uni.navigateTo({
-					url:`/pages/addOfflineRepair/addOfflineRepair`
+					url: `/pages/addOfflineRepair/addOfflineRepair`
 				})
+			},
+			handleTabChange(value) {
+				this.current=value
 			}
 		}
 	}
@@ -49,22 +61,24 @@
 <style lang="scss">
 	.container {
 		width: 100%;
-		height: 100vh;
+		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+		// justify-content: center;
+		// align-items: center;
+		justify-content: flex-start;
 		padding: 12rpx 36rpx;
 
 		.link-item {
 			width: 100%;
 			height: 290rpx;
-margin: 24rpx 0rpx;
+			margin: 24rpx 0rpx;
 			border-radius: 20rpx;
 			display: inline-flex;
 			justify-content: center;
 			align-items: center;
-			.link-item-text{
+
+			.link-item-text {
 				padding-left: 64rpx;
 			}
 		}
