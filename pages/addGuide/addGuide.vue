@@ -14,10 +14,14 @@
 		</view> -->
 
 		<u-tabs :list="list" :is-scroll="false" :current="current" bar-width="120" @change="handleTabChange"></u-tabs>
+	<addrepair v-if="current==0"></addrepair>
+	<addOfflineRepair v-else-if="current==1"></addOfflineRepair>
 	</view>
 </template>
 
 <script>
+	import addrepair from '../addrepair/addrepair.vue'
+	import addOfflineRepair from '../addOfflineRepair/addOfflineRepair.vue'
 	export default {
 		data() {
 			return {
@@ -27,6 +31,10 @@
 				list: [],
 				current: 0
 			};
+		},
+		components:{
+			addrepair:addrepair,
+			addOfflineRepair:addOfflineRepair
 		},
 		onReady() {
 			const that = this
