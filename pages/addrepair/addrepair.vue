@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar :title="$t('app_new_warranty')" :background="{backgroundColor:'#4C81EF'}" title-color="#fff"
+		<u-navbar v-if="showNav==true" :title="$t('app_new_warranty')" :background="{backgroundColor:'#4C81EF'}" title-color="#fff"
 			back-icon-color="#fff">
 			<template v-slot:right>
 				<view class="navbar-icon" @click="handleClearClick">
@@ -66,6 +66,12 @@
 	import wty from '../../api/wty.js'
 	import utils from '../../utils/index.js';
 	export default {
+		props: {
+			showNav:{
+				type:Boolean,
+				default:true
+			}
+		},
 		data() {
 			return {
 				pagetitle: '',

@@ -71,7 +71,7 @@
 							</view>
 							<view class="info-box">
 								<!-- @click="toProductDetail(item.productItemId)" -->
-								<view class="info-item u-line-2">
+								<view class="info-item u-line-1" style="padding-right: 120rpx;">
 									<!-- 	{{$t('field_product_item_name')}}： -->
 									<text style="color:#4C81EF;">{{item.productItemNames}}</text>
 								</view>
@@ -88,31 +88,31 @@
 									{{$t('enum_crm_comp_type_brand')}}：<text
 										style="color:#4C81EF;">{{item.brandCompName}}</text>
 								</view>
-								<view class="info-item" style="font-size: 24rpx;display: flex;flex-direction: column;">
-									<text>{{$t('app_warranty_period')}}</text>
-									<text>{{item.purDateStr}}-{{item.expDateStr}}</text>
+								<view class="info-item u-line-1" style="font-size: 20rpx;">
+									{{$t('app_warranty_period')}}:{{item.purDateStr}}-{{item.expDateStr}}
+									<!-- <text>{{item.purDateStr}}-{{item.expDateStr}}</text> -->
 								</view>
 							</view>
-
+							
 						</view>
 						<!-- 			{{item.warrantyType=='1'?item.warrantyStatusDesc:$t('app_offline')}} -->
 						<view class="data-status">
 							{{getstatus(item)}}
 						</view>
 					</view>
-					<view class="right-box">
-						<!-- <view class="right-box-1"> -->
-						<!-- @click="toBrandDetail(item)" -->
-						<!-- 	<view class="date-wrap">
+					<!-- <view class="right-box"> -->
+					<!-- <view class="right-box-1"> -->
+					<!-- @click="toBrandDetail(item)" -->
+					<!-- 	<view class="date-wrap">
 								{{$t('enum_crm_comp_type_brand')}}：{{item.brandCompName}}
 							</view>
 						</view> -->
-						<!-- <view class="right-box-1">
+					<!-- <view class="right-box-1">
 							<view class="date-wrap">
 								{{$t('app_warranty_period')}}：{{item.purDateStr}}-{{item.expDateStr}}
 							</view>
 						</view> -->
-						<!-- 			<view class="right-box-1">
+					<!-- 			<view class="right-box-1">
 							<view class="repair-user">
 								{{$t('app_warranty_company')}}：{{item.distributorCompName}}
 							</view>
@@ -120,7 +120,7 @@
 								{{item.warrantyStatus=='0'?$t('op_edit'):$t('app_view')}}
 							</view>
 						</view> -->
-					</view>
+					<!-- </view> -->
 				</view>
 				<u-empty :text="$t('app_no_data')" mode="list" v-if="repairlist.length==0"></u-empty>
 			</view>
@@ -511,8 +511,8 @@
 							align-items: flex-start;
 
 							.info-img {
-								width: 150rpx;
-								height: 150rpx;
+								width: 120rpx;
+								height: 120rpx;
 								flex-shrink: 0;
 								display: inline-flex;
 								justify-content: center;
@@ -521,6 +521,7 @@
 
 							.info-box {
 								flex: 1;
+								width: 504rpx;
 								padding: 0rpx 6rpx;
 								flex-grow: 1;
 								display: flex;

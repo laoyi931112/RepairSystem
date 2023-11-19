@@ -14,8 +14,8 @@
 		</view> -->
 
 		<u-tabs :list="list" :is-scroll="false" :current="current" bar-width="120" @change="handleTabChange"></u-tabs>
-	<addrepair v-if="current==0"></addrepair>
-	<addOfflineRepair v-else-if="current==1"></addOfflineRepair>
+	<addrepair v-if="current==0" :showNav="false"></addrepair>
+	<addOfflineRepair v-else-if="current==1" :showNav="false"></addOfflineRepair>
 	</view>
 </template>
 
@@ -41,11 +41,14 @@
 			uni.setNavigationBarTitle({
 				title: that.$t('app_new_warranty')
 			})
-			that.list = [{
-				name: that.$t('app_online')
-			}, {
-				name: that.$t('app_offline')
-			}]
+			setTimeout(()=>{
+				that.list = [{
+					name: that.$t('app_online')
+				}, {
+					name: that.$t('app_offline')
+				}]
+			},1000)
+			
 		},
 		methods: {
 			toJSON() {},
