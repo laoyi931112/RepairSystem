@@ -14,8 +14,8 @@
 		</view> -->
 
 		<u-tabs :list="list" :is-scroll="false" :current="current" bar-width="120" @change="handleTabChange"></u-tabs>
-	<addrepair v-if="current==0" :showNav="false"></addrepair>
-	<addOfflineRepair v-else-if="current==1" :showNav="false"></addOfflineRepair>
+		<addrepair v-if="current==0" :showNav="false"></addrepair>
+		<addOfflineRepair v-else-if="current==1" :showNav="false"></addOfflineRepair>
 	</view>
 </template>
 
@@ -29,26 +29,30 @@
 				offline: require('../../static/offline@2x.png'),
 				online: require('../../static/online@2x.png'),
 				list: [],
-				current: 0
+				current: 0,
+				timer: 0
 			};
 		},
-		components:{
-			addrepair:addrepair,
-			addOfflineRepair:addOfflineRepair
+		components: {
+			addrepair: addrepair,
+			addOfflineRepair: addOfflineRepair
 		},
 		onReady() {
 			const that = this
-			uni.setNavigationBarTitle({
-				title: that.$t('app_new_warranty')
-			})
-			setTimeout(()=>{
+			that.timer = setInterval(() => {
+				uni.setNavigationBarTitle({
+					title: that.$t('app_new_warranty')
+				})
 				that.list = [{
 					name: that.$t('app_online')
 				}, {
 					name: that.$t('app_offline')
 				}]
-			},1000)
-			
+			}, 1000)
+
+		},
+		onHide() {
+			this.timer = 0
 		},
 		methods: {
 			toJSON() {},
@@ -63,7 +67,7 @@
 				})
 			},
 			handleTabChange(value) {
-				this.current=value
+				this.current = value
 			}
 		}
 	}
