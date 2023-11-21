@@ -55,7 +55,12 @@
             },
             /* ios打包配置 */
             "ios" : {
-                "dSYMs" : false
+                "dSYMs" : false,
+                "privacyDescription" : {
+                    "NSPhotoLibraryAddUsageDescription" : "",
+                    "NSPhotoLibraryUsageDescription" : "Used for setting user avatars and providing warranty credentials for users",
+                    "NSCameraUsageDescription" : "Used for setting user avatars and providing warranty credentials for users"
+                }
             },
             /* SDK配置 */
             "sdkConfigs" : {
@@ -121,5 +126,6 @@
         "enable" : false
     },
     "vueVersion" : "2",
-    "fallbackLocale" : "en"
+    "fallbackLocale" : "en",
+    "locale" : "auto"
 }
