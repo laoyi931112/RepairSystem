@@ -16,7 +16,7 @@
 			</view>
 		</view>
 		<view class="info-version">
-			v 1.0.52
+			v 1.0.53
 		</view>
 	</view>
 </template>
