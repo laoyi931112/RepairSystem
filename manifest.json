@@ -2,8 +2,8 @@
     "name" : "HomeXpert",
     "appid" : "__UNI__D3DB060",
     "description" : "Track brand warranties effortlessly with our app.",
-    "versionName" : "1.0.53",
-    "versionCode" : 1053,
+    "versionName" : "1.0.55",
+    "versionCode" : 1055,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
