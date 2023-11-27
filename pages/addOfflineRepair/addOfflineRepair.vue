@@ -34,7 +34,7 @@
 						class="info-input" :class="[checkDate?'':'placeholder-class']">{{checkDate?checkDate:$t('app_select_date')}}</view>
 				</view>
 				<u-picker v-model="showDate" mode="time" :params="dateParams" @confirm="handleConfirmDate"
-					confirm-text="confirm" cancel-text="cancel" :show-time-tag="false">
+					confirm-text="confirm" cancel-text="cancel" :show-time-tag="false" :endTime="endTime" :default-time="endTime">
 				</u-picker>
 			</view>
 			<view class="info-item">
@@ -101,7 +101,8 @@
 				infoTitle: '',
 				keyword: '',
 				remark: '',
-				periodDate: ''
+				periodDate: '',
+				endTime: new Date().Format('yyyy/MM/dd')
 			};
 		},
 		onLoad(options) {
@@ -145,7 +146,7 @@
 			handleConfirmDate(e) {
 				this.checkDate =
 					`${e.day}/${e.month}/${e.year}`
-				this.buydate = new Date(e.year, e.month, e.day).getTime()
+				this.buydate = new Date(e.year, e.month-1, e.day).getTime()
 			},
 			saveRepairClick() {
 				const that = this

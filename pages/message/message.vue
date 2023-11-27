@@ -14,9 +14,9 @@
 								<view class="info-item u-line-1 info-title">
 									{{item.productItemName}}
 								</view>
-								<view class="info-item">
+								<!-- <view class="info-item">
 									{{$t('field_product_item_sn')}}：{{item.productItemSn}}
-								</view>
+								</view> -->
 								<!-- 								<view class="info-item u-line-1">
 									九阳HU-001
 								</view> -->

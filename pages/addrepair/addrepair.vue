@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
-		<u-navbar v-if="showNav==true" :title="$t('app_new_warranty')" :background="{backgroundColor:'#4C81EF'}" title-color="#fff"
-			back-icon-color="#fff">
+		<u-navbar v-if="showNav==true" :title="$t('app_new_warranty')" :background="{backgroundColor:'#4C81EF'}"
+			title-color="#fff" back-icon-color="#fff">
 			<template v-slot:right>
 				<view class="navbar-icon" @click="handleClearClick">
 					{{$t('app_clear')}}
@@ -23,10 +23,11 @@
 				</view>
 				<view class="info-value">
 					<view @click="handleShowDate" class="info-input" :class="[checkDate?'':'placeholder-class']">
-						{{checkDate?checkDate:$t('app_select_date')}}</view>
+						{{checkDate?checkDate:$t('app_select_date')}}
+					</view>
 				</view>
 				<u-picker v-model="showDate" mode="time" :params="dateParams" @confirm="handleConfirmDate"
-					confirm-text="confirm" cancel-text="cancel" :show-time-tag="false">
+					confirm-text="confirm" cancel-text="cancel" :show-time-tag="false" :endTime="endTime" :default-time="endTime">
 				</u-picker>
 			</view>
 			<view class="info-item">
@@ -67,9 +68,9 @@
 	import utils from '../../utils/index.js';
 	export default {
 		props: {
-			showNav:{
-				type:Boolean,
-				default:true
+			showNav: {
+				type: Boolean,
+				default: true
 			}
 		},
 		data() {
@@ -93,7 +94,8 @@
 				}, //分销商
 				infoTitle: '',
 				keyword: '',
-				remark: ''
+				remark: '',
+				endTime: new Date().Format('yyyy/MM/dd')
 			};
 		},
 		onLoad(options) {
@@ -151,9 +153,11 @@
 				this.showDate = !this.showDate
 			},
 			handleConfirmDate(e) {
+				console.log('handleConfirmDate', e);
 				this.checkDate =
 					`${e.day}/${e.month}/${e.year}`
-				this.buydate = new Date(e.year, e.month, e.day).getTime()
+				this.buydate = new Date(e.year, e.month - 1, e.day).getTime()
+				console.log('handleConfirmDate', this.buydate);
 			},
 			toComfirmRepair() {
 				const that = this

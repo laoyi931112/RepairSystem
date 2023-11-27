@@ -148,7 +148,7 @@
 						url: `/pages/tenantdetail/tenantdetail?id=${item.distributorCompId}`
 					})
 				}else {
-					uni.setStorageSync(item.id, item)
+					uni.setStorageSync(`abc${item.id}`, item)
 					uni.navigateTo({
 						url: `/pages/applyrepairdetail/applyrepairdetail?id=${item.id}`
 					})
@@ -161,7 +161,7 @@
 						url: `/pages/repairdetail/repairdetail?obj=${JSON.stringify(item)}`
 					})
 				} else {
-					uni.setStorageSync(item.id, item)
+					uni.setStorageSync(`abc${item.id}`, item)
 					uni.navigateTo({
 						url: `/pages/applyrepairdetail/applyrepairdetail?id=${item.id}`
 					})

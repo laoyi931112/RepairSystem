@@ -17,9 +17,9 @@
 					<view class="info-item">
 						{{$t('field_product_item_name')}}：{{detail.productItemName}}
 					</view>
-					<view class="info-item">
+					<!-- <view class="info-item">
 						{{$t('field_product_item_sn')}}：{{detail.productItemSn}}
-					</view>
+					</view> -->
 					<view class="info-item" @click="toBrandDetail(detail.brandCompId)">
 						{{$t('def_brand')}}：{{detail.brandCompName}}
 					</view>

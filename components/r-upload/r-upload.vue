@@ -1,6 +1,6 @@
 <template>
 	<u-upload :upload-text="uploadtext" :action="action" :max-count="maxcount" :header="headers"
-		:file-list="filelist" @on-uploaded="onUploaded" ref="myupload" :width="width" :height="height" :disabled="disabled" :deletable="deletable"></u-upload>
+		:file-list="filelist" @on-uploaded="onUploaded" ref="myupload" :width="width" :height="height" :disabled="disabled" :deletable="deletable" :show-tips="false"></u-upload>
 </template>
 
 <script>

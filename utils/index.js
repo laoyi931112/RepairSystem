@@ -61,7 +61,29 @@ const navigateBack = () => {
 		})
 	}
 }
+const getMonthBetween = (start, end) => {
+    let result = [];
+        let min = new Date(start);
+        let max = new Date(end);
+        let curr = min;
+        do{
+            let month = new Date(curr).getMonth() + 1;
+            let t = ""
+            if (month < 10) {
+                t = '0' + month
+            } else t = month
+            let str = curr.getFullYear() + "-" + (t);
+            result.push(str);
+            if (month == 12) {
+                curr.setFullYear(new Date(curr).getFullYear() + 1)
+                curr.setMonth(0)
+            } else curr.setMonth(month);
+        } while (curr <= max)
+
+        return result;
+}
 export default {
+	getMonthBetween,
 	showmessage,
 	getRandomStr,
 	navigateBack

@@ -22,13 +22,13 @@
 				</view>
 				<view class="info-content">
 					<view class="info-item" v-if="detail.warrantyType=='1'">
-						{{$t('field_product_item_model')}}：{{detail.productItemId}}
+						{{$t('field_product_item_model')}}：{{detail.productItemNames}}
 					</view>
 					<view class="info-item" @click="toProductDetail(detail.productItemId)">
 						{{$t('field_product_item_name')}}：<text
 							style="color:#4C81EF;">{{detail.productItemNames}}</text>
 					</view>
-				<!-- 	<view class="info-item" v-if="detail.warrantyType=='1'">
+					<!-- 	<view class="info-item" v-if="detail.warrantyType=='1'">
 						{{$t('field_product_item_sn')}}：{{detail.productItemSn}}
 					</view> -->
 					<view class="info-item" @click="toBrandDetail(detail.brandCompId)" v-if="detail.warrantyType=='1'">
@@ -38,7 +38,8 @@
 						所属分类：xxx
 					</view> -->
 					<view class="info-item" v-if="detail.warrantyType=='1'">
-						{{$t('app_warranty_period')}}：{{detail.expDate}}
+						<!-- {{$t('app_warranty_period')}}：{{detail.expDate}} -->
+						{{$t('app_warranty_period')}}：{{detail.term?detail.term.length:0}}
 					</view>
 					<!-- 	<view class="info-item">
 						标签：xxx
@@ -50,7 +51,8 @@
 			</view>
 			<view class="info-box">
 				<view class="info-desc">
-					{{$t('app_voucher')}}({{$t('def_warranty')}}ID:{{detail.warrantyCode}})
+					{{$t('app_voucher')}}
+					<!-- ({{$t('def_warranty')}}ID:{{detail.warrantyCode}}) -->
 				</view>
 				<view class="info-box-w">
 					<view class="info-box-left">
@@ -58,7 +60,7 @@
 							{{$t('app_purchasing_date')}}：{{detail.purDate}}
 						</view>
 						<view class="info-box-left-item">
-							{{$t('app_warranty_period')}}：{{detail.expDate}}
+							{{$t('app_expire_date')}}：{{detail.expDate}}
 						</view>
 						<view class="info-box-left-item" v-if="detail.warrantyType=='1'">
 							{{$t('app_business')}}：{{detail.distributorCompName}}
@@ -66,11 +68,15 @@
 						<view class="info-box-left-item">
 							{{$t('field_warranty_status')}}：{{detail.warrantyStatusDesc}}
 						</view>
+						<view class="info-box-left-item">
+							{{$t('def_warranty')}} ID：{{detail.warrantyCode}}
+						</view>
 					</view>
 					<view class="info-box-right">
 						<!-- <image :src="detail.warrantyImagesUrl" class="info-box-img"></image> -->
 						<u-swiper class="info-box-img" v-if="carousel1.length>0" :list="carousel1" height="160"
-							mode="dot" indicator-pos="bottomCenter" border-radius="12" circular @click="handlePreviewImg2">
+							mode="dot" indicator-pos="bottomCenter" border-radius="12" circular
+							@click="handlePreviewImg2">
 						</u-swiper>
 					</view>
 				</view>
@@ -108,10 +114,12 @@
 			if (options.obj) {
 				this.obj = options.obj
 				this.detail = JSON.parse(options.obj)
-				console.log('this.detail',this.detail);
+				console.log('this.detail', this.detail);
 				if (this.detail.warrantyStatus == '2' && new Date(this.detail.expDate) > new Date()) {
 					this.showBtn = true
 				}
+				this.detail.term = utils.getMonthBetween(new Date().Format('yyyy/MM/dd'), new Date(this.detail.expDate)
+					.Format('yyyy/MM/dd'))
 				this.detail.expDate = new Date(this.detail.expDate).Format('dd/MM/yyyy')
 				this.detail.purDate = new Date(this.detail.purDate).Format('dd/MM/yyyy')
 				this.detail?.productItemImagesUrls?.forEach(t => {
@@ -190,7 +198,7 @@
 
 			},
 			toApply() {
-				uni.setStorageSync(`abc${this.detail.id}`,this.detail)
+				uni.setStorageSync(`abc${this.detail.id}`, this.detail)
 				uni.navigateTo({
 					url: `/pages/applyrepair/applyrepair?id=${this.detail.id}`
 				})

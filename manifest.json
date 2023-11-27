@@ -2,8 +2,8 @@
     "name" : "HomeXpert",
     "appid" : "__UNI__D3DB060",
     "description" : "Track brand warranties effortlessly with our app.",
-    "versionName" : "1.0.55",
-    "versionCode" : 1055,
+    "versionName" : "1.0.57",
+    "versionCode" : 1057,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -59,7 +59,8 @@
                 "privacyDescription" : {
                     "NSPhotoLibraryAddUsageDescription" : "",
                     "NSPhotoLibraryUsageDescription" : "Used for setting user avatars and providing warranty credentials for users",
-                    "NSCameraUsageDescription" : "Used for setting user avatars and providing warranty credentials for users"
+                    "NSCameraUsageDescription" : "Used for setting user avatars and providing warranty credentials for users",
+                    "NSUserTrackingUsageDescription" : "Please rest assured that enabling permissions will not obtain your privacy information on other sites. This permission is only used to identify devices and ensure service security and prompt browsing experience"
                 }
             },
             /* SDK配置 */

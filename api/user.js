@@ -65,7 +65,15 @@ const setLang = (params) => {
 		method: 'POST'
 	})
 }
+const signOut = (params) => {
+	return request({
+		url: `${store.state.api}/warranty-user-app/signOut`,
+		data: params,
+		method: 'POST'
+	})
+}
 export default {
+	signOut,
 	setLang,
 	getMyInfo,
 	modifyPwd,

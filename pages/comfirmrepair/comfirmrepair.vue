@@ -22,9 +22,9 @@
 					<view class="info-box-desc">
 						{{$t('field_product_item_model')}}：{{item.itemModel}}
 					</view>
-					<view class="info-box-desc">
+					<!-- <view class="info-box-desc">
 						{{$t('field_product_item_sn')}}：{{item.itemSn}}
-					</view>
+					</view> -->
 				<!-- 	<view class="info-box-desc u-line-1">
 						{{$t('field_product_item_desc')}}：<text v-html="item.itemDesc"></text>
 					</view> -->

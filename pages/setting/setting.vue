@@ -18,6 +18,8 @@
 					</u-cell-item>
 					<u-cell-item :title="$t('app_about_us')" @click="toAbout">
 					</u-cell-item>
+					<u-cell-item :title="$t('app_remove_acc')" @click="toRemoveAccount">
+					</u-cell-item>
 				</u-cell-group>
 			</view>
 		</view>
@@ -35,8 +37,8 @@
 			return {
 				pagetitle: 'app_settings',
 				currentLang: {
-					label:'',
-					value:'',
+					label: '',
+					value: '',
 				}
 			};
 		},
@@ -48,27 +50,28 @@
 		},
 		watch: {
 			'$store.state.userInfo': {
-				handler(newval,oldval){
+				handler(newval, oldval) {
 					this.currentLang = this.$store.getters.getCurrentLang
-					console.log('currentLang',this.currentLang)
+					console.log('currentLang', this.currentLang)
 				},
-				immediate:true,
-				deep:true
+				immediate: true,
+				deep: true
 			}
 		},
-		computed:{
-			username:function(){
+		computed: {
+			username: function() {
 				return this.$store.state.userInfo?.userName
 			},
-			phone:function(){
+			phone: function() {
 				return this.$store.state.userInfo?.userTel
 			},
-			email:function(){
+			email: function() {
 				return this.$store.state.userInfo?.userEmail
 			},
-			avatarurl:function(){
+			avatarurl: function() {
 				let checkSex = this.$store.state.userInfo.userGender ? this.$store.state.userInfo.userGender : '1'
-				return this.$store.state.userInfo?.profileImageUrl?this.$store.state.userInfo?.profileImageUrl:(checkSex == '1' ? this.manimgs : this.womanimg)
+				return this.$store.state.userInfo?.profileImageUrl ? this.$store.state.userInfo?.profileImageUrl : (
+					checkSex == '1' ? this.manimgs : this.womanimg)
 			}
 		},
 		methods: {
@@ -109,6 +112,11 @@
 			toAbout() {
 				uni.navigateTo({
 					url: `/pages/about/about`
+				})
+			},
+			toRemoveAccount(){
+				uni.navigateTo({
+					url: `/pages/removeacc/removeacc`
 				})
 			}
 		}

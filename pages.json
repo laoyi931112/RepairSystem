@@ -265,6 +265,14 @@
 				"enablePullDownRefresh": false
 			}
 
+		},
+		{
+			"path" : "pages/removeacc/removeacc",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
 	],
 	"tabBar": {

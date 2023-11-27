@@ -12,9 +12,9 @@
 						@click="toProductDetail(detail.productItemId)">
 						{{detail.productItemName}}
 					</view>
-					<view class="info-item">
+					<!-- <view class="info-item">
 						{{$t('field_product_item_sn')}}：{{detail.productItemSn}}
-					</view>
+					</view> -->
 					<view class="info-item">
 						{{$t('def_warranty')}}ID：{{detail.warrantyCode}}
 					</view>
@@ -77,7 +77,7 @@
 		},
 		onLoad(options) {
 			if (options.id) {
-				this.detail =uni.getStorageSync(options.id)
+				this.detail =uni.getStorageSync(`abc${options.id}`)
 				this.detail.expDate = new Date(this.detail.expDate).Format('dd/MM/yyyy')
 				this.detail.purDate = new Date(this.detail.purDate).Format('dd/MM/yyyy')
 				this.detail.createTimeStr = new Date(this.detail.createTimeStr).Format('dd/MM/yyyy')

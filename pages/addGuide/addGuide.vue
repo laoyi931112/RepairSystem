@@ -28,7 +28,11 @@
 				pagetitle: 'app_new_warranty',
 				offline: require('../../static/offline@2x.png'),
 				online: require('../../static/online@2x.png'),
-				list: [],
+				list: [{
+					name: 'Online'
+				}, {
+					name: 'Offline'
+				}],
 				current: 0,
 				timer: 0
 			};
@@ -37,7 +41,7 @@
 			addrepair: addrepair,
 			addOfflineRepair: addOfflineRepair
 		},
-		onReady() {
+		onShow() {
 			const that = this
 			that.timer = setInterval(() => {
 				uni.setNavigationBarTitle({
@@ -49,7 +53,6 @@
 					name: that.$t('app_offline')
 				}]
 			}, 1000)
-
 		},
 		onHide() {
 			this.timer = 0

@@ -15,9 +15,9 @@
 									@click="toProductDetail(item.productItemId)">
 									{{item.productItemName}}
 								</view>
-								<view class="info-item">
+								<!-- <view class="info-item">
 									{{$t('field_product_item_sn')}}：{{item.productItemSn}}
-								</view>
+								</view> -->
 								<view class="info-item u-line-1 info-item-1">
 									{{$t('def_warranty')}}ID：{{item.warrantyCode}}
 								</view>

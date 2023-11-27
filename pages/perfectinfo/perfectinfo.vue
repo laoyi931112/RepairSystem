@@ -144,7 +144,7 @@
 			handleConfirmShowBirthday(e) {
 				console.log('handleConfirmShowBirthday', e)
 				this.checkDate = `${e.day}/${e.month}/${e.year}`
-				this.birthday = new Date(e.year, e.month, e.day).getTime()
+				this.birthday = new Date(e.year, e.month-1, e.day).getTime()
 			},
 			handleShowSex(val) {
 				this.checkSex = val

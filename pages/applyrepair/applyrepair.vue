@@ -14,21 +14,21 @@
 					<view class="info-item" style="font-size: 30rpx;font-weight: 550;color: #333;" @click="toProductDetail(detail.productItemId)">
 						{{detail.productItemName}}
 					</view>
-					<view class="info-item">
+					<!-- <view class="info-item">
 						{{$t('field_product_item_sn')}}：{{detail.productItemSn}}
-					</view>
+					</view> -->
 					<!-- 					<view class="info-item">
 						九阳XXXX
 					</view> -->
 					<view class="info-item">
 						{{$t('def_warranty')}}ID：{{detail.warrantyCode}}
 					</view>
-					<view class="info-item">
+				<!-- 	<view class="info-item">
 						{{$t('app_create_date')}}：{{detail.createTimeStr}}
 					</view>
 					<view class="info-item">
 						{{$t('app_warranty_period')}}：{{detail.expDate}}
-					</view>
+					</view> -->
 				</view>
 			</view>
 			<!-- 			<view class="info-tip">
@@ -56,7 +56,7 @@
 					<r-upload :maxcount="1" :value.sync="imgs" :width="120" :height="120"></r-upload>
 				</view>
 			</view>
-			<view class="info-item" style="flex-direction: column;align-items: flex-start;justify-content: flex-start;">
+			<view class="info-item" style="flex-direction: column;align-items: flex-start;justify-content: flex-start;" v-if="false">
 				<view class="info-desc"
 					style="font-size: 30rpx;font-weight: 550;border-left: 6rpx solid #4C81EF;padding-left: 16rpx;">
 					{{$t('app_nearby_maintenance_company')}}:
@@ -84,7 +84,7 @@
 	import wty from '../../api/wty.js'
 	export default {
 		data() {
-			return {pagetitle: 'app_apply_warranty',
+			return {pagetitle: 'app_new_maintain',
 				detail: {}, //详情
 				problem: '',
 				imgs: [],
@@ -118,7 +118,7 @@
 		},
 		onReady() {
 			uni.setNavigationBarTitle({
-				title:this.$t('app_apply_warranty')
+				title:this.$t('app_new_maintain')
 			})
 		},
 		methods: {

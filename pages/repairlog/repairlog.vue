@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view class="info-wrap">
-			<view class="info-item" v-for="(item,index) in repairlist" :key="item.id">
+			<view class="info-item" v-for="(item,index) in repairlist" :key="item.id" @click="toDetail(item)">
 				<view class="info-img">
 					<u-image class="info-icon" @click="handleImageClick(item.productItemImagesUrls[0])"
 						:src="item.productItemImagesUrls[0]" :show-loading="true" :show-error="true" width="160"
@@ -9,7 +9,7 @@
 					</u-image>
 				</view>
 				<view class="info-content">
-					<view class="info-text info-title" @click="toProductDetail(item.productItemId)">
+					<view class="info-text info-title u-line-1" @click="toProductDetail(item.productItemId)">
 						{{item.productItemName}}
 					</view>
 					<view class="info-text u-line-1">
@@ -24,10 +24,13 @@
 					<view class="info-text">
 						{{key=='w'?$t('app_maintenance_company'):$t('def_brand')}}：{{key=='w'?item.distributorCompName:item.brandCompName}}
 					</view>
+					<view class="data-status">
+						{{getstatus(item)}}
+					</view>
 				</view>
-				<u-button size="mini" class="info-detail-btn" v-if="key=='w'" @click="toDetail(item)">{{$t('app_view')}}
+				<!-- 	<u-button size="mini" class="info-detail-btn" v-if="key=='w'" @click="toDetail(item)">{{$t('app_view')}}
 				</u-button>
-				<u-button size="mini" class="info-detail-btn" v-if="key=='b'">{{item.warrantyStatusDesc}}</u-button>
+				<u-button size="mini" class="info-detail-btn" v-if="key=='b'">{{item.warrantyStatusDesc}}</u-button> -->
 			</view>
 		</view>
 	</view>
@@ -136,12 +139,12 @@
 			},
 			toDetail(obj) {
 				if (obj?.applyStatus == '0') {
-					uni.setStorageSync(obj.id, obj)
+					uni.setStorageSync(`abc${obj.id}`, obj)
 					uni.navigateTo({
 						url: `/pages/applyrepair/applyrepair?id=${obj.id}`
 					})
 				} else {
-					uni.setStorageSync(obj.id, obj)
+					uni.setStorageSync(`abc${obj.id}`, obj)
 					uni.navigateTo({
 						url: `/pages/applyrepairdetail/applyrepairdetail?id=${obj.id}`
 					})
@@ -152,6 +155,22 @@
 				uni.navigateTo({
 					url: `/pages/productdetail/productdetail?id=${id}`
 				})
+			},
+			getstatus(item) {
+				if (item?.warrantyType == '0') {
+					return this.$t('app_offline')
+				} else if (item?.warrantyType == '1' && item?.warrantyStatus == '1') {
+					return this.$t('app_in_audit')
+				} else if (item?.warrantyStatus == '2' && item?.auditResult == '2') {
+					return this.$t('app_audit_refuse')
+				} else if (item?.warrantyStatus == '2' && item?.auditResult == '1' && item?.expDate >= new Date()
+					.getTime()) {
+					return this.$t('app_under_guarantee')
+				} else if (item?.warrantyStatus == '2' && item?.auditResult == '1' && item?.expDate < new Date()
+					.getTime()) {
+					return this.$t('app_expire')
+				}
+				return item?.warrantyStatusDesc
 			},
 		}
 	}
@@ -182,16 +201,16 @@
 				position: relative;
 
 				.info-img {
-					width: 160rpx;
-					height: 160rpx;
+					width: 120rpx;
+					height: 120rpx;
 					flex-shrink: 0;
 					display: inline-flex;
 					justify-content: center;
 					align-items: center;
 
 					.info-icon {
-						width: 160rpx;
-						height: 160rpx;
+						width: 120rpx;
+						height: 120rpx;
 						display: inline-flex;
 						justify-content: center;
 						align-items: center;
@@ -205,6 +224,8 @@
 					height: 100%;
 					justify-content: flex-start;
 					padding: 0rpx 0rpx 0rpx 18rpx;
+					width: 0;
+					position: relative;
 
 					.info-text {
 						width: 100%;
@@ -217,6 +238,12 @@
 						font-size: 30rpx;
 						font-weight: 550;
 						color: #000;
+						padding-right: 120rpx;
+					}
+
+					.data-status {
+						position: absolute;
+						right: -10rpx;
 					}
 				}
 
