@@ -29,7 +29,7 @@
 						{{$t('field_product_item_desc')}}：<text v-html="item.itemDesc"></text>
 					</view> -->
 					<view class="info-box-desc">
-						{{$t('enum_crm_comp_type_brand')}}：{{item.brandCompId}}
+						{{$t('enum_crm_comp_type_brand')}}：{{item.brandCompName}}
 					</view>
 					<view class="info-box-desc">
 						{{$t('field_product_item_warranty_period')}}：{{item.warrantyPeriod}}
@@ -53,7 +53,7 @@
 	import utils from '../../utils/index.js';
 	export default {
 		data() {
-			return {pagetitle: 'app_new_warranty',
+			return {pagetitle: 'app_new_maintain',
 				id:'',
 				detail:{},
 				repairObj: {},
@@ -76,7 +76,7 @@
 		},
 		onReady() {
 			uni.setNavigationBarTitle({
-				title:this.$t('app_new_warranty')
+				title:this.$t('app_new_maintain')
 			})
 		},
 		methods: {

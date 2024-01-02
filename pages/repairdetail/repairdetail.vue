@@ -39,7 +39,7 @@
 					</view> -->
 					<view class="info-item" v-if="detail.warrantyType=='1'">
 						<!-- {{$t('app_warranty_period')}}：{{detail.expDate}} -->
-						{{$t('app_warranty_period')}}：{{detail.term?detail.term.length:0}}
+						{{$t('app_warranty_period')}}：{{detail.term?detail.term.length:0}}{{$t('app_month')}}
 					</view>
 					<!-- 	<view class="info-item">
 						标签：xxx
@@ -71,9 +71,11 @@
 						<view class="info-box-left-item">
 							{{$t('def_warranty')}} ID：{{detail.warrantyCode}}
 						</view>
+						<view class="info-box-left-item" v-if="invoiceimgs.length>0">
+							{{$t('field_warranty_invoice_image')}} ：<image :src="invoiceimgs[0]" style="width: 96px;height: 96px;" @click="handlePreviewImg1"></image>
+						</view>
 					</view>
 					<view class="info-box-right">
-						<!-- <image :src="detail.warrantyImagesUrl" class="info-box-img"></image> -->
 						<u-swiper class="info-box-img" v-if="carousel1.length>0" :list="carousel1" height="160"
 							mode="dot" indicator-pos="bottomCenter" border-radius="12" circular
 							@click="handlePreviewImg2">
@@ -107,7 +109,8 @@
 				carousel: [], //产品图
 				carousel1: [], //凭证
 				showBtn: false,
-				title: ''
+				title: '',
+				invoiceimgs: [],
 			};
 		},
 		onLoad(options) {
@@ -136,7 +139,9 @@
 						data: '',
 					})
 				})
-				console.log('detail', this.detail, this.carousel, this.carousel1)
+				// this.invoiceimgs=[this.carousel1[0].image]
+				this.invoiceimgs = this.detail.invoiceImageUrl ? this.detail.invoiceImageUrl?.split(',') : []
+				console.log('detail', this.detail, this.carousel, this.carousel1, this.invoiceimgs)
 				this.getProduct(this.detail?.productItemId)
 			}
 		},
@@ -167,6 +172,12 @@
 				uni.previewImage({
 					current: index,
 					urls: urls
+				})
+			},
+			handlePreviewImg1() {
+				uni.previewImage({
+					current: 0,
+					urls: this.invoiceimgs
 				})
 			},
 			toEdit() {

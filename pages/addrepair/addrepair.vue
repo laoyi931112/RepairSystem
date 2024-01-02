@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar v-if="showNav==true" :title="$t('app_new_warranty')" :background="{backgroundColor:'#4C81EF'}"
+		<u-navbar v-if="showNav==true" :title="$t('app_new_maintain')" :background="{backgroundColor:'#4C81EF'}"
 			title-color="#fff" back-icon-color="#fff">
 			<template v-slot:right>
 				<view class="navbar-icon" @click="handleClearClick">
@@ -9,6 +9,14 @@
 			</template>
 		</u-navbar>
 		<view class="info-wrap">
+			<view class="info-item" style="flex-direction: column;border-bottom: none;align-items: flex-start;">
+				<view class="info-desc" style="padding-bottom: 24rpx;">
+					{{$t('field_warranty_invoice_image')}}:<text style="color: red;">*</text>
+				</view>
+				<view class="info-value">
+					<r-upload :maxcount="1" :value.sync="invoiceimgs" :width="120" :height="120"></r-upload>
+				</view>
+			</view>
 			<view class="info-item" style="flex-direction: column;border-bottom: none;align-items: flex-start;">
 				<view class="info-desc" style="padding-bottom: 24rpx;">
 					{{$t('app_add_warranty_image_tips')}}:<text style="color: red;">*</text>
@@ -75,7 +83,7 @@
 		},
 		data() {
 			return {
-				pagetitle: '',
+				pagetitle: 'app_new_maintain',
 				id: '',
 				obj: {},
 				checkDate: '',
@@ -87,6 +95,7 @@
 				},
 				buydate: 0, //购买日期
 				imgs: [],
+				invoiceimgs:[],
 				compinfo: {
 					compName: '',
 					compType: '',
@@ -106,6 +115,7 @@
 				this.compinfo.id = this.obj?.distributorCompId
 				this.compinfo.compName = this.obj?.distributorCompName
 				this.imgs = this.obj?.warrantyImagesUrl?.split(',')
+				this.invoiceimgs=this.obj?.invoiceImageUrl?.split(',')
 				this.keyword = this.obj?.distributorCompId
 				this.buydate = this.obj?.purDate
 				this.remark = this.obj?.warrantyRemark
@@ -146,6 +156,7 @@
 				}
 				this.buydate = 0
 				this.imgs = []
+				this.invoiceimgs=[]
 				this.checkDate = ''
 				this.keyword = ''
 			},
@@ -161,14 +172,15 @@
 			},
 			toComfirmRepair() {
 				const that = this
-				if (that.compinfo.id == '' || that.buydate == 0 || that.imgs.length == 0) return
+				if (that.compinfo.id == '' || that.buydate == 0 || that.imgs.length == 0|| that.invoiceimgs.length == 0) return
 				let obj = {
 					id: that.id,
 					detail: that.obj,
 					buydate: that.buydate,
 					imgs: that.imgs,
 					compinfo: that.compinfo,
-					remark: that.remark
+					remark: that.remark,
+					invoiceimgs:that.invoiceimgs
 				}
 				uni.navigateTo({
 					url: `/pages/comfirmrepair/comfirmrepair?obj=${JSON.stringify(obj)}`,
@@ -201,9 +213,10 @@
 			},
 			saveRepairClick() {
 				const that = this
-				if (that.compinfo.id == '' || that.buydate == 0 || that.imgs.length == 0 || !that.remark) return
+				if (that.compinfo.id == '' || that.buydate == 0 || that.imgs.length == 0|| that.invoiceImageUrl.length == 0 || !that.remark) return
 				let _data = {
 					warrantyImagesUrl: that.imgs?.join(','),
+					invoiceImageUrl:that.invoiceimgs?.join(','),
 					distributorCompId: that.compinfo?.id,
 					purDate: that.buydate,
 					warrantyRemark: that.remark
@@ -226,8 +239,10 @@
 				const that = this
 				console.log('that.imgs', that.imgs)
 				if (that.imgs.length == 0) return
+				if (that.invoiceimgs.length == 0) return
 				let _data = {
-					warrantyImagesUrl: that.imgs?.join(',')
+					warrantyImagesUrl: that.imgs?.join(','),
+					invoiceImageUrl:that.invoiceimgs?.join(',')
 				}
 				if (that.compinfo?.id) {
 					_data.distributorCompId = that.compinfo?.id

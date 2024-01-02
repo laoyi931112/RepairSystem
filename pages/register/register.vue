@@ -2,6 +2,12 @@
 	<view class="container">
 		<view class="login-wrap">
 			<view class="login-item">
+				<view class="iconfont laoyi-icon-morentouxiang password-icon">
+				</view>
+				<u-input class="login-input login-input3" v-model="userName" type="text" clearable
+					:placeholder="$t('app_enter_name')" :customStyle="{height:84+'rpx'}" border></u-input>
+			</view>
+			<view class="login-item">
 				<view class="login-phone-prefix">
 					<text>{{checkPhonePrefix&&checkPhonePrefix.label?checkPhonePrefix.label:$t('app_select')}}</text>
 				</view>
@@ -21,7 +27,6 @@
 			</view>
 			<view class="login-item">
 				<view class="iconfont laoyi-icon-jiesuo password-icon">
-
 				</view>
 				<u-input class="login-input login-input3" v-model="password" type="password" clearable
 					:placeholder="$t('err_required_pwd')" :customStyle="{height:84+'rpx'}" border></u-input>
@@ -40,9 +45,8 @@
 		<view class="login-agree">
 			<u-radio-group v-model="checkAgree">
 				<u-radio name="1">
-	<!-- 			{{$t('app_agree')}} -->
-				<text class="login-agree-text"
-						@click.tap="toAgreement('agreement')">{{$t('app_agree')}}</text>
+					<!-- 			{{$t('app_agree')}} -->
+					<text class="login-agree-text" @click.tap="toAgreement('agreement')">{{$t('app_agree')}}</text>
 					<!-- 			{{$t('app_and')}}<text
 							class="login-agree-text" @click.tap="toAgreement('privacy')">《{{$t('app_privacy_agreement')}}》</text> -->
 				</u-radio>
@@ -58,7 +62,9 @@
 	import md5 from '../../utils/md5.js'
 	export default {
 		data() {
-			return {pagetitle: 'op_register',
+			return {
+				pagetitle: 'op_register',
+				userName: '',
 				phone: '',
 				certCode: '',
 				certCodeTip: '',
@@ -132,6 +138,10 @@
 			},
 			handleRegister() {
 				const that = this
+				if (!that.userName) {
+					utils.showmessage(that.$t('err_required_user_name'))
+					return
+				}
 				if (!that.phone) {
 					utils.showmessage(that.$t('err_required_tel'))
 					return
@@ -163,7 +173,8 @@
 				let params = {
 					certCode: that.certCode,
 					tel: that.phone,
-					pwd: md5.hex_md5_32(that.password)
+					pwd: md5.hex_md5_32(that.password),
+					userName:that.userName
 				}
 				user.register(params).then(res => {
 					console.log('handleRegister', res)

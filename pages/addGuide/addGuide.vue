@@ -25,7 +25,7 @@
 	export default {
 		data() {
 			return {
-				pagetitle: 'app_new_warranty',
+				pagetitle: 'app_new_maintain',
 				offline: require('../../static/offline@2x.png'),
 				online: require('../../static/online@2x.png'),
 				list: [{
@@ -45,7 +45,7 @@
 			const that = this
 			that.timer = setInterval(() => {
 				uni.setNavigationBarTitle({
-					title: that.$t('app_new_warranty')
+					title: that.$t('app_new_maintain')
 				})
 				that.list = [{
 					name: that.$t('app_online')

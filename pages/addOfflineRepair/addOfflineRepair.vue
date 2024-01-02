@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar v-if="showNav==true" :title="$t('app_new_warranty')" :background="{backgroundColor:'#4C81EF'}" title-color="#fff"
+		<u-navbar v-if="showNav==true" :title="$t('app_new_maintain')" :background="{backgroundColor:'#4C81EF'}" title-color="#fff"
 			back-icon-color="#fff">
 			<template v-slot:right>
 				<view class="navbar-icon" @click="handleClearClick">
@@ -15,6 +15,14 @@
 				</view>
 				<view class="info-value">
 					<u-input v-model="productname" :placeholder="$t('err_required_item_name')" />
+				</view>
+			</view>
+			<view class="info-item" style="flex-direction: column;border-bottom: none;align-items: flex-start;">
+				<view class="info-desc" style="padding-bottom: 24rpx;">
+					{{$t('field_warranty_invoice_image')}}:<text style="color: red;"></text>
+				</view>
+				<view class="info-value">
+					<r-upload :maxcount="1" :value.sync="invoiceimgs" :width="120" :height="120"></r-upload>
 				</view>
 			</view>
 			<view class="info-item" style="flex-direction: column;border-bottom: none;align-items: flex-start;">
@@ -84,7 +92,7 @@
 		},
 		data() {
 			return {
-				pagetitle: 'app_new_warranty',
+				pagetitle: 'app_new_maintain',
 				id: '',
 				obj: {},
 				checkDate: '',
@@ -96,6 +104,7 @@
 				},
 				buydate: 0, //购买日期
 				imgs: [],
+				invoiceimgs:[],
 				pimgs: [],
 				productname: '',
 				infoTitle: '',
@@ -110,6 +119,7 @@
 				this.obj = JSON.parse(options.obj)
 				this.id = this.obj?.id
 				this.imgs = this.obj?.warrantyImagesUrl?.split(',')
+				this.invoiceimgs=this.obj?.invoiceImageUrl?.split(',')
 				this.pimgs = this.obj?.customProductItemImagesUrl?.split(',')
 				this.keyword = this.obj?.distributorCompId
 				this.buydate = this.obj?.purDate
@@ -133,6 +143,7 @@
 				this.id = ''
 				this.buydate = 0
 				this.imgs = []
+				this.invoiceimgs=[]
 				this.pimgs = []
 				this.checkDate = ''
 				this.periodDate = ''
@@ -154,6 +165,7 @@
 					.periodDate || !that.productname) return
 				let _data = {
 					warrantyImagesUrl: that.imgs?.join(','),
+					invoiceImageUrl:that.invoiceimgs?.join(','),
 					customProductItemImagesUrl: that.pimgs?.join(','),
 					customProductItemName: that.productname,
 					purDate: that.buydate,
