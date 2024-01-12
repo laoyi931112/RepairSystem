@@ -69,7 +69,7 @@
 					utils.showmessage(that.$t('err_required_tel'))
 					return
 				}
-				if (that.phone.length != 9) {
+				if (!(that.phone.length == 9||that.phone.length == 10)) {
 					utils.showmessage(that.$t('err_format_tel'))
 					return
 				}

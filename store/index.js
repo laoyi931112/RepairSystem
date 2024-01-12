@@ -5,7 +5,8 @@ import common from '../api/common.js'
 import user from '../api/user.js'
 export default new Vuex.Store({
 	state: {
-		api: 'http://47.254.214.47:8308',
+		// api: 'http://47.254.214.47:8308',
+		api: 'http://api.homexpert.com.my',
 		langData: {}, //所有翻译数据
 		showAdvert: true, //是否展示广告
 		languageList: [{
